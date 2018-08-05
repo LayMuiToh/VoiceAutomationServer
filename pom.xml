@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.se2automate.voice</groupId>
+    <artifactId>VoiceAutomationServer</artifactId>
+    <version>1.0.1</version>
+    <name>VoiceAutomationServer</name>
+    <description>
+        Voice Automation Server
+    </description>
+    <organization>
+        <name>Selenium2Automate</name>
+        <url>https://se2automate.wordpress.com</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>g-tiwari</id>
+            <name>Gaurav Tiwari</name>
+            <email>tiwarigaurav1992@gmail.com</email>
+        </developer>
+    </developers>
+    <properties>
+        <jersey-project.version>1.17</jersey-project.version>
+        <jsr311-api.version>1.1</jsr311-api.version>
+        <jersey-grizzly2.version>1.17</jersey-grizzly2.version>
+        <slf4j-api.version>1.7.12</slf4j-api.version>
+        <commons-io.version>1.3.2</commons-io.version>
+        <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j-log4j12.version>1.7.5</slf4j-log4j12.version>
+        <tritonus-share.version>0.3.7.4</tritonus-share.version>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
+        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
+        <maven-surefire-plugin>2.19.1</maven-surefire-plugin>
+        <maven-jar-plugin>3.0.2</maven-jar-plugin>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <maven.compiler.argument.target>${maven.compiler.target}</maven.compiler.argument.target>
+        <maven.compiler.argument.source>${maven.compiler.source}</maven.compiler.argument.source>
+        <vas.main>com.se2automate.voice.server.VoiceAutomationServer</vas.main>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-grizzly2</artifactId>
+            <version>${jersey-project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jersey-project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey-project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.soundlibs</groupId>
+            <artifactId>tritonus-share</artifactId>
+            <version>${tritonus-share.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>${vas.main}</mainClass>
+                            </manifest>
+                        </archive>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
