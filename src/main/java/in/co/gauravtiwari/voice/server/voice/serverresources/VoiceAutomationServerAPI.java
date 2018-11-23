@@ -14,14 +14,14 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.serverresources;
+package in.co.gauravtiwari.voice.server.voice.serverresources;
 
-import com.se2automate.audio.implementation.AudioException;
-import com.se2automate.audio.implementation.AudioPlayer;
-import com.se2automate.audio.implementation.AudioRecorder;
-import com.se2automate.voice.design.VoiceAutomationServerAPIModel;
-import com.se2automate.voice.messagemodel.VoiceAutomationMessage;
-import com.se2automate.voice.messagemodel.VoiceAutomationMessageStatus;
+import in.co.gauravtiwari.voice.server.audio.implementation.AudioException;
+import in.co.gauravtiwari.voice.server.audio.implementation.AudioPlayer;
+import in.co.gauravtiwari.voice.server.audio.implementation.AudioRecorder;
+import in.co.gauravtiwari.voice.server.voice.design.VoiceAutomationServerAPIModel;
+import in.co.gauravtiwari.voice.server.voice.messagemodel.VoiceAutomationMessage;
+import in.co.gauravtiwari.voice.server.voice.messagemodel.VoiceAutomationMessageStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +32,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-
-import static com.se2automate.voice.serverresources.VoiceAutomationServerUtils.DOWNLOAD_BASE_DIR;
 
 /**
  * A resource class that gets loaded in voice.
@@ -84,7 +82,7 @@ public class VoiceAutomationServerAPI implements VoiceAutomationServerAPIModel {
         if (portNumberStr != null && !portNumberStr.isEmpty()) {
             try {
                 int portNumber = Integer.parseInt(portNumberStr);
-                AudioPlayer.playAudio(new File(DOWNLOAD_BASE_DIR + fileName), portNumber);
+                AudioPlayer.playAudio(new File(VoiceAutomationServerUtils.DOWNLOAD_BASE_DIR + fileName), portNumber);
                 vam = new VoiceAutomationMessage(VoiceAutomationMessageStatus.SUCCESS, "Played");
             } catch (NumberFormatException e) {
                 vam = new VoiceAutomationMessage(VoiceAutomationMessageStatus.FAIL, "Unable to convert audio port to integer");
@@ -94,7 +92,7 @@ public class VoiceAutomationServerAPI implements VoiceAutomationServerAPIModel {
         } else {
             LOG.info("No audio port set, using default 0");
             try {
-                AudioPlayer.playAudio(new File(DOWNLOAD_BASE_DIR + fileName));
+                AudioPlayer.playAudio(new File(VoiceAutomationServerUtils.DOWNLOAD_BASE_DIR + fileName));
                 vam = new VoiceAutomationMessage(VoiceAutomationMessageStatus.SUCCESS, "Played");
             } catch (AudioException e) {
                 vam = new VoiceAutomationMessage(VoiceAutomationMessageStatus.FAIL, e.getMessage());

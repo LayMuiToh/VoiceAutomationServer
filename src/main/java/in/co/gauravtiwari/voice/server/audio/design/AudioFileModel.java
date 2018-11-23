@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.design;
+package in.co.gauravtiwari.voice.server.audio.design;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;

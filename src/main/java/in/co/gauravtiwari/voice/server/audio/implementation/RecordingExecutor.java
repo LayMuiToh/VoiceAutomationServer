@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
 
 import org.slf4j.Logger;
@@ -31,7 +31,7 @@ import java.io.ByteArrayOutputStream;
  * Thread for actually performing the recording
  */
 public class RecordingExecutor implements Runnable, LineListener {
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.RecordingExecutor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RecordingExecutor.class);
     // Java recommends the data buffer where we catch the data to be a certain ratio of the line buffer
     // We should not set our buffer the same size of the line buffer
     // Their example used 1/5 of the line buffer, this can be fine tuned if needed

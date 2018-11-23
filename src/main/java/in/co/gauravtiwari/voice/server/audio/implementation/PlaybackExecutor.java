@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ import javax.sound.sampled.LineListener;
  * A Thread for actually performing the playback
  */
 public class PlaybackExecutor implements Runnable, LineListener {
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.PlaybackExecutor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PlaybackExecutor.class);
     private static final int SLEEP_TIME_MILLIS = 100;
     private Clip audioClip;
     private boolean playCompleted;

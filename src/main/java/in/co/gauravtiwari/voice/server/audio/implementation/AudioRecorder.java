@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ import java.io.ByteArrayOutputStream;
  */
 public final class AudioRecorder {
 
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.AudioRecorder.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AudioRecorder.class);
 
     // default record duration, in milliseconds
     private static final long DEFAULT_RECORD_TIME = 10000;  // 10 seconds

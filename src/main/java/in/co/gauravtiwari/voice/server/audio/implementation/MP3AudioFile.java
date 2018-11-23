@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ import java.util.Map;
  * An implementation of the AudioFile abstract class for the mp3 file extension
  */
 public class MP3AudioFile extends AudioFile {
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.MP3AudioFile.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MP3AudioFile.class);
 
     /**
      * Constructor takes in an audioFile and generates the correct AudioFormat, AudioInputStream and duration objects

@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.serverresources;
+package in.co.gauravtiwari.voice.server.voice.serverresources;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +37,7 @@ import java.util.UUID;
  */
 public final class VoiceAutomationServerUtils {
 
-    public static final String DOWNLOAD_BASE_DIR = System.getProperty("java.io.tmpdir")+"/";
+    public static final String DOWNLOAD_BASE_DIR = System.getProperty("java.io.tmpdir")+ File.separator;
     private static final Logger LOG = LoggerFactory.getLogger(VoiceAutomationServerUtils.class);
     // Use a specific user-agent in case of the server blocks robots by checking user-agent
     private static final String USER_AGENT = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)";

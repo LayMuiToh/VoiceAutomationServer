@@ -14,10 +14,10 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.serverresources;
+package in.co.gauravtiwari.voice.server.voice.serverresources;
 
-import com.se2automate.voice.messagemodel.VoiceAutomationMessage;
-import com.se2automate.voice.messagemodel.VoiceAutomationMessageStatus;
+import in.co.gauravtiwari.voice.server.voice.messagemodel.VoiceAutomationMessage;
+import in.co.gauravtiwari.voice.server.voice.messagemodel.VoiceAutomationMessageStatus;
 import org.codehaus.jackson.JsonParseException;
 
 import javax.ws.rs.core.Response;

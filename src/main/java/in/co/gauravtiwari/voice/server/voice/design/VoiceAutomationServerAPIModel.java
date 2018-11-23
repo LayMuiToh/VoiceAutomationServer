@@ -14,10 +14,10 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.design;
+package in.co.gauravtiwari.voice.server.voice.design;
 
 
-import com.se2automate.voice.messagemodel.VoiceAutomationMessage;
+import in.co.gauravtiwari.voice.server.voice.messagemodel.VoiceAutomationMessage;
 
 import javax.ws.rs.core.Response;
 

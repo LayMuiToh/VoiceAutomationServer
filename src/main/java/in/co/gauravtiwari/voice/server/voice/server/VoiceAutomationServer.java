@@ -14,9 +14,9 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.server;
+package in.co.gauravtiwari.voice.server.voice.server;
 
-import com.se2automate.voice.design.VoiceAutomationServerModel;
+import in.co.gauravtiwari.voice.server.voice.design.VoiceAutomationServerModel;
 import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
@@ -117,7 +117,7 @@ public class VoiceAutomationServer implements VoiceAutomationServerModel {
      */
     public void startServer() {
         LOG.info("Initializing Voice Automation server");
-        ResourceConfig rc = new PackagesResourceConfig("com.se2automate.voice.serverresources");
+        ResourceConfig rc = new PackagesResourceConfig("in.co.gauravtiwari.voice.server.voice.serverresources");
         //Create config map and add to resource config to turn
         // on json serialization for a POJO
         Map<String, Object> config = new HashMap<String, Object>();

@@ -14,9 +14,9 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
-import com.se2automate.audio.design.AudioFileModel;
+import in.co.gauravtiwari.voice.server.audio.design.AudioFileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +32,7 @@ import java.io.IOException;
  * An abstract class that has the default constructor to wrap the File object used to instantiate the audio file
  */
 public abstract class AudioFile implements AudioFileModel {
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.AudioFile.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AudioFile.class);
     private File audioFile;
     private AudioFormat audioFormat;
     private AudioInputStream audioInputStream;

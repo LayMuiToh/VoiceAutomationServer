@@ -14,9 +14,9 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
-import com.se2automate.audio.design.AudioFileModel;
+import in.co.gauravtiwari.voice.server.audio.design.AudioFileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class AudioPlayer {
 
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.AudioPlayer.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AudioPlayer.class);
 
     /**
      * Private constructor

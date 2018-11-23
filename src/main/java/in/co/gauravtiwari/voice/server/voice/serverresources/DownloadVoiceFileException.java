@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.serverresources;
+package in.co.gauravtiwari.voice.server.voice.serverresources;
 
 import java.io.IOException;
 

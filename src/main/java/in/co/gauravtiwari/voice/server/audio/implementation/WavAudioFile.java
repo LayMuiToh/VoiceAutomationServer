@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.audio.implementation;
+package in.co.gauravtiwari.voice.server.audio.implementation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +32,7 @@ import java.io.IOException;
  * An implementation of the AudioFile abstract class for the wav file extension
  */
 public class WavAudioFile extends AudioFile {
-    private static final Logger LOG = LoggerFactory.getLogger(com.se2automate.audio.implementation.WavAudioFile.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WavAudioFile.class);
     private static final int SECONDS_TO_MICROSECONDS = 1000000;
 
     /**

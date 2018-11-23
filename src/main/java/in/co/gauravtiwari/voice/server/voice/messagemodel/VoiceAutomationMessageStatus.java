@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.messagemodel;
+package in.co.gauravtiwari.voice.server.voice.messagemodel;
 
 
 /**

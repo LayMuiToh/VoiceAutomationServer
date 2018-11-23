@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.se2automate.voice</groupId>
+    <groupId>in.co.gauravtiwari.voice</groupId>
     <artifactId>VoiceAutomationServer</artifactId>
     <version>1.0.1</version>
     <name>VoiceAutomationServer</name>
@@ -46,7 +46,7 @@
 
         <maven.compiler.argument.target>${maven.compiler.target}</maven.compiler.argument.target>
         <maven.compiler.argument.source>${maven.compiler.source}</maven.compiler.argument.source>
-        <vas.main>com.se2automate.voice.server.VoiceAutomationServer</vas.main>
+        <vas.main>in.co.gauravtiwari.voice.server.voice.server.VoiceAutomationServer</vas.main>
     </properties>
 
     <dependencies>

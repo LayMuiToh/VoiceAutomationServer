@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-package com.se2automate.voice.design;
+package in.co.gauravtiwari.voice.server.voice.design;
 
 /**
  * Interface for the Voice Automation server
