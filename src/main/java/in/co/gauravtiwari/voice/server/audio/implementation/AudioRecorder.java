@@ -20,7 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sound.sampled.*;
-import java.io.ByteArrayOutputStream;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 /**
  * created By Gaurav Tiwari
@@ -194,5 +196,86 @@ public final class AudioRecorder {
             LOG.error(e.getMessage() + e.getCause());
             throw new AudioException("Interrupted while waiting for recording to finish", e);
         }
+
     }
+
+        /**
+         * Generates an audio file from the stream. The file must be a WAV file.
+         *
+         * @param data the byte array
+         * @param outputFile the file in which to write the audio data could not be
+         *            written onto the file
+         */
+        public static void generateFile(byte[] data, File outputFile) {
+            try {
+                AudioInputStream audioStream = getAudioStream(data);
+                if (outputFile.getName().endsWith("wav")) {
+                    int nb = AudioSystem.write(audioStream, AudioFileFormat.Type.WAVE,
+                            new FileOutputStream(outputFile));
+                    LOG.info("WAV file written to " + outputFile.getCanonicalPath()
+                            + " (" + (nb / 1000) + " kB)");
+                }
+                else {
+                    throw new RuntimeException("Unsupported encoding " + outputFile);
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException("could not generate file: " + e);
+            }
+        }
+
+    /**
+     * Returns the audio stream corresponding to the array of bytes
+     *
+     * @param byteArray the byte array
+     * @return the converted audio stream
+     */
+    public static AudioInputStream getAudioStream(byte[] byteArray) {
+        try {
+            try {
+                ByteArrayInputStream byteStream =
+                        new ByteArrayInputStream(byteArray);
+                return AudioSystem.getAudioInputStream(byteStream);
+            }
+            catch (UnsupportedAudioFileException e) {
+                byteArray = addWavHeader(byteArray);
+                ByteArrayInputStream byteStream =
+                        new ByteArrayInputStream(byteArray);
+                return AudioSystem.getAudioInputStream(byteStream);
+            }
+        }
+        catch (IOException | UnsupportedAudioFileException e) {
+            throw new RuntimeException("cannot convert bytes to audio stream: " + e);
+        }
+    }
+
+    /**
+     * Adds a WAV header to the byte array
+     *
+     * @param bytes the original array of bytes
+     * @return the new array with the header
+     * @throws IOException if the byte array is ill-formatted
+     */
+    private static byte[] addWavHeader(byte[] bytes) throws IOException {
+
+        ByteBuffer bufferWithHeader = ByteBuffer.allocate(bytes.length + 44);
+        bufferWithHeader.order(ByteOrder.LITTLE_ENDIAN);
+        bufferWithHeader.put("RIFF".getBytes());
+        bufferWithHeader.putInt(bytes.length + 36);
+        bufferWithHeader.put("WAVE".getBytes());
+        bufferWithHeader.put("fmt ".getBytes());
+        bufferWithHeader.putInt(16);
+        bufferWithHeader.putShort((short) 1);
+        bufferWithHeader.putShort((short) 1);
+        bufferWithHeader.putInt(16000);
+        bufferWithHeader.putInt(32000);
+        bufferWithHeader.putShort((short) 2);
+        bufferWithHeader.putShort((short) 16);
+        bufferWithHeader.put("data".getBytes());
+        bufferWithHeader.putInt(bytes.length);
+        bufferWithHeader.put(bytes);
+        return bufferWithHeader.array();
+    }
+
 }
